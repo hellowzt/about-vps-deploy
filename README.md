@@ -1,7 +1,16 @@
-# about-vps-deploy（基于网上教程整理）
+# about-vps-deploy
+> 免责声明：该项目所涉及软件及代码均为网上搜集整理，仅为个人笔记，若涉及您的版权，请联系本人删除。
 
 # 安装x-ui：
+
+原版安装：
+```
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+```
+多功能版安装：
+```
+bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
+```
 
 # 安装nginx：
 apt install nginx
@@ -42,6 +51,7 @@ Ctrl+C
 vim /usr/lib/systemd/system/cloudreve.service    #输入i开始编辑
 
 # 配置文件中内容:
+```
 [Unit]
 Description=Cloudreve
 Documentation=https://docs.cloudreve.org
@@ -61,6 +71,7 @@ StandardError=syslog
 
 [Install]
 WantedBy=multi-user.target
+```
 
 # 保存配置文件并退出
 Esc :wq回车
@@ -83,6 +94,7 @@ systemctl enable cloudreve
 vim /etc/nginx/nginx.conf#输入i开始编辑
 
 # 配置文件内容：
+```
 user www-data;
 worker_processes auto;
 pid /run/nginx.pid;
@@ -156,6 +168,7 @@ http {
             }
     }
 }
+```
 
 # 保存配置文件并退出
 Esc :wq回车
@@ -169,3 +182,9 @@ systemctl enable nginx
 
 # 查验运行状态：
 systemctl status nginx
+
+# 致谢
+- [vaxilu/x-ui](https://github.com/vaxilu/x-ui)
+- [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-ui)
+- [cloudreve/docs](https://github.com/cloudreve/docs)
+- [不良林](https://bulianglin.com)
